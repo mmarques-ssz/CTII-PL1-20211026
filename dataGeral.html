@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Datas em JS</title>
+    </head>
+    <body>
+        <script language="javascript">
+            var hoje, nascimento, dia, mes, ano, diaDaSemana, hora, minuto, segundo, diasDaSemana, inicio, fim, dias1, dias2;
+            diasDaSemana = Array(7);
+            diasDaSemana[0]="Domingo";
+            diasDaSemana[1]="Segunda";
+            diasDaSemana[2]="Terça";
+            diasDaSemana[3]="Quarta";
+            diasDaSemana[4]="Quinta";
+            diasDaSemana[5]="Sexta";
+            diasDaSemana[6]="Sábado";
+
+            hoje = new Date();
+            dia = hoje.getDate();
+            mes = hoje.getMonth() + 1;
+            ano = hoje.getFullYear();
+            diaDaSemana = hoje.getDay();
+            hora = hoje.getHours();
+            minuto = hoje.getMinutes();
+            segundo = hoje.getSeconds();
+
+            nascimento = new Date(1971, 6, 8, 8, 32, 45);
+
+            document.write(hoje);
+            document.write("<br>");
+            document.write(dia + "/" + mes + "/" + ano + ", " + diasDaSemana[diaDaSemana] 
+                           + " - " + hora + ":" + minuto + ":" + segundo);
+            document.write("<br>");
+
+            document.write(nascimento);
+            document.write("<br>");
+            with (nascimento)
+            {
+            document.write(getDate() + "/" + (getMonth()+1) + "/" + getFullYear() + ", " + diasDaSemana[getDay()]
+                           + " - " + getHours() + ":" + getMinutes() + ":" + getSeconds());
+            }
+            document.write("<br>");
+
+            inicio = new Date(2021, 9, 1);
+            fim = new Date(2021, 10, 1);
+            fim.setDate(0);
+
+            dias1 = inicio.getDate();
+            dias2 = fim.getDate();
+            do
+            {
+                document.write(dias1 + " - " + diasDaSemana[inicio.getDay()] + "<br>");
+                dias1++;
+                inicio.setDate( inicio.getDate() + 1 );
+            }
+            while (dias1 <= dias2);
+
+            /*
+            with (inicio)
+            {
+            document.write(getDate() + "/" + (getMonth()+1) + "/" + getFullYear() + ", " + diasDaSemana[getDay()]);
+            }
+            document.write("<br>");
+
+            inicio.setDate(-1);
+            with (inicio)
+            {
+            document.write(getDate() + "/" + (getMonth()+1) + "/" + getFullYear() + ", " + diasDaSemana[getDay()]);
+            }
+            document.write("<br>");
+            */
+
+        </script>
+
+    </body>
+</html>
